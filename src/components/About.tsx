@@ -1,6 +1,38 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 
+const skills = [
+  'JavaScript',
+  'TypeScript',
+  'Python',
+  'SQL',
+  'HTML',
+  'CSS',
+  'React',
+  'Next.js',
+  'FastAPI',
+  'Flask',
+  'Express',
+  'Tailwind CSS',
+  'MongoDB',
+  'PostgreSQL',
+  'Prisma',
+  'Supabase',
+  'Firebase',
+  'Neon DB',
+  'Git',
+  'GitHub',
+  'VS Code',
+  'Cursor',
+  'Postman',
+  'Figma',
+  'LLMs',
+  'RAG',
+  'IBM Granite',
+  'Claude',
+  'REST APIs',
+];
+
 export function About() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -72,14 +104,7 @@ export function About() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mt-12 flex flex-wrap gap-3"
           >
-            {[
-              'React',
-              'TypeScript',
-              'Tailwind CSS',
-              'Node.js',
-              'Figma',
-              'Motion',
-            ].map((skill, index) => (
+            {skills.map((skill, index) => (
               <motion.span
                 key={skill}
                 initial={{ opacity: 0, scale: 0.8 }}

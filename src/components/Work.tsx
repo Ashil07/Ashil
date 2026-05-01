@@ -33,11 +33,20 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: 'App Automation Suite',
+    title: 'Anemia Detection System',
     description:
-      'Automated testing framework for mobile applications using Appium, enabling efficient cross-platform app testing and quality assurance.',
-    tech: ['Python', 'Appium', 'Selenium', 'Pytest'],
-    github: '#',
+      'Developed an AI-powered diagnostic tool to predict anemia using blood test parameters and patient data. Trained machine learning models in Google Colab to identify patterns associated with anemia conditions and deployed an interactive web interface for real-time predictions. The system enables fast, cost-effective preliminary screening and supports early diagnosis.',
+    tech: [
+      'Python',
+      'Scikit-learn',
+      'Pandas',
+      'NumPy',
+      'Streamlit',
+      'Google Colab',
+      'Matplotlib',
+    ],
+    link: 'https://ashil07-anemia-internship-app-gpatxp.streamlit.app/',
+    github: 'https://github.com/Ashil07/Anemia-internship',
     color: 'from-orange-500/10 to-yellow-500/10',
   },
   {
@@ -46,8 +55,46 @@ const projects: Project[] = [
     description:
       'A specialized billing solution for timber businesses with wood measurement calculations, inventory management, and invoice generation.',
     tech: ['React', 'Python', 'FastAPI', 'PostgreSQL'],
-    github: '#',
+    github: 'https://github.com/Ashil07/Wood-CFT-calculator',
     color: 'from-green-500/10 to-emerald-500/10',
+  },
+  {
+    id: 5,
+    title: 'Cloth Rental System',
+    description:
+      'Built a full-stack rental platform with pricing and inventory APIs, backed by a Prisma/PostgreSQL schema for users, rentals, coupons, and reviews with JWT auth and RBAC.',
+    tech: ['Node.js', 'React', 'PostgreSQL', 'Prisma', 'JWT', 'Cloudinary', 'Multer'],
+    link: 'threadrent.vercel.app',
+    github: 'https://github.com/Ashil07/dbms-project',
+    color: 'from-rose-500/20 to-fuchsia-500/20',
+  },
+  {
+    id: 6,
+    title: 'Do4U (Service Marketplace Platform)',
+    description:
+      'Developed a full-stack service marketplace with job posting, chat, and AI-based pricing using an async FastAPI backend, PostgreSQL, JWT authentication, role access, and transaction workflows.',
+    tech: ['FastAPI', 'React', 'PostgreSQL', 'Supabase', 'JWT'],
+    link: 'do4u.vercel.app',
+    github: 'https://github.com/Ashil07/Do4U',
+    color: 'from-indigo-500/20 to-sky-500/20',
+  },
+  {
+    id: 7,
+    title: 'SpendX (Financial Management Platform)',
+    description:
+      'Created a finance platform for expense tracking, budgeting, and multi-currency transactions with Firebase authentication, currency conversion APIs, AI-based insights, and an interactive dashboard.',
+    tech: ['Next.js', 'TypeScript', 'MongoDB', 'Firebase'],
+    github: 'https://github.com/Ashil07/Hackfest25-1',
+    color: 'from-amber-500/20 to-lime-500/20',
+  },
+  {
+    id: 8,
+    title: 'Student VCS (Version Control System for Students)',
+    description:
+      'Built a lightweight version control system designed specifically for students to manage project files and track changes without the complexity of traditional tools. Implemented core features like version tracking, file history, and project snapshots, allowing users to organize and restore previous work easily. Designed to integrate seamlessly with local project folders for a simple and intuitive workflow.',
+    tech: ['Python', 'File Handling', 'CLI Design', 'Data Structures'],
+    github: 'https://github.com/Ashil07/student-vcs',
+    color: 'from-violet-500/20 to-cyan-500/20',
   },
 ];
 
@@ -105,8 +152,14 @@ export function Work() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -8, scale: 1.015 }}
+                whileTap={{ scale: 0.995 }}
                 className="group relative"
               >
+                {/* Outer glow to make hover color pop on every card */}
+                <div
+                  className={`pointer-events-none absolute -inset-1 rounded-3xl bg-gradient-to-br ${project.color} opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-80`}
+                />
                 <div className="relative h-full p-8 rounded-2xl border border-border bg-card hover:border-foreground/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                   {/* Gradient background */}
                   <div
@@ -127,34 +180,40 @@ export function Work() {
                     {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tech.map((tech) => (
-                        <span
+                        <motion.span
                           key={tech}
+                          whileHover={{ scale: 1.06 }}
+                          transition={{ duration: 0.2 }}
                           className="px-3 py-1 text-sm rounded-full bg-muted/50 text-muted-foreground"
                         >
                           {tech}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
 
                     {/* Links */}
                     <div className="flex items-center gap-4">
                       {project.link && (
-                        <a
+                        <motion.a
                           href={project.link}
+                          whileHover={{ x: 3 }}
+                          transition={{ duration: 0.2 }}
                           className="inline-flex items-center gap-2 text-sm text-foreground hover:text-muted-foreground transition-colors"
                         >
                           <ExternalLink className="w-4 h-4" />
                           <span>View Project</span>
-                        </a>
+                        </motion.a>
                       )}
                       {project.github && (
-                        <a
+                        <motion.a
                           href={project.github}
+                          whileHover={{ x: 3 }}
+                          transition={{ duration: 0.2 }}
                           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                         >
                           <Github className="w-4 h-4" />
                           <span>Code</span>
-                        </a>
+                        </motion.a>
                       )}
                     </div>
                   </div>

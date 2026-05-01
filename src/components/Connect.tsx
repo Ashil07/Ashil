@@ -6,13 +6,13 @@ const socialLinks = [
   {
     name: 'GitHub',
     icon: Github,
-    href: 'https://github.com',
+    href: 'https://github.com/Ashil07',
     color: 'hover:text-[#181717] dark:hover:text-white',
   },
   {
     name: 'LinkedIn',
     icon: Linkedin,
-    href: 'https://linkedin.com',
+    href: 'https://linkedin.com/in/mohammed-ashil-',
     color: 'hover:text-[#0A66C2]',
   },
   {
@@ -24,7 +24,7 @@ const socialLinks = [
   {
     name: 'Email',
     icon: Mail,
-    href: 'mailto:alex@example.com',
+    href: 'mailto:muhammedashil7@gmail.com',
     color: 'hover:text-red-500',
   },
 ];
@@ -96,6 +96,8 @@ export function Connect() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isVisible ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                whileHover={{ y: -6, scale: 1.12, rotate: 2 }}
+                whileTap={{ scale: 0.95 }}
                 className={`p-4 rounded-full bg-muted/50 text-muted-foreground transition-all duration-300 hover:bg-muted hover:scale-110 ${social.color}`}
                 aria-label={social.name}
                 target="_blank"
@@ -114,7 +116,7 @@ export function Connect() {
             className="mt-12"
           >
             <a
-              href="mailto:alex@example.com"
+              href="mailto:muhammedashil7@gmail.com"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-foreground text-background hover:opacity-90 transition-all duration-200 hover:scale-105"
             >
               <Mail className="w-5 h-5" />
