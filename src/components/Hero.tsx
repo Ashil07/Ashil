@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
+import { Download } from 'lucide-react';
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,6 +35,23 @@ export function Hero() {
             Developer <span className="text-foreground/40">|</span> Designer{' '}
             <span className="text-foreground/40">|</span> Freelancer
           </motion.p>
+
+          {/* Resume CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+            className="mb-10"
+          >
+            <a
+              href="/resume.pdf"
+              download
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background hover:opacity-90 transition-all duration-200 hover:scale-105"
+            >
+              <Download className="w-4 h-4" />
+              <span className="font-medium">Download Resume</span>
+            </a>
+          </motion.div>
 
           {/* Scroll indicator */}
           <motion.div
